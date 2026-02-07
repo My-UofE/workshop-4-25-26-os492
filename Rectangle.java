@@ -5,10 +5,19 @@ import java.nio.file.FileAlreadyExistsException;
 public class Rectangle {
   
   // 4 instance attributes
-  public double width;
-  public double height;
-  public double originX = 0.0;
-  public double originY = 0.0;
+  private double width;
+  private double height;
+  private double originX = 0.0;
+  private double originY = 0.0;
+
+public double getWidth(){ 
+  return width;
+}
+
+
+public void setWidth(double width){
+  this.width = width;
+}
 
   // 1 static attributes
   public static final int NUMBER_OF_SIDES = 4;

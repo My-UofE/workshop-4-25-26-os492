@@ -1,4 +1,7 @@
 // A Rectangle class
+
+import java.nio.file.FileAlreadyExistsException;
+
 public class Rectangle {
   
   // 4 instance attributes
@@ -35,6 +38,16 @@ public class Rectangle {
 	   originY += dy;
   }
 
+  public void scale(double scaleX, double scaleY){
+    width *= scaleX;
+    height *= scaleY;
+    System.out.println("New width: " + width + ", New height: " + height);;
+  }
+
+  public void scale(double factor){
+    scale(factor, factor);
+  }
+
   // method: compute the area of the rectangle
   public double getArea() {
     return width * height;
@@ -45,4 +58,48 @@ public class Rectangle {
     return 2 * (width + height);
   }
   
+public boolean isOverlappedWith(Rectangle r) {
+
+    // Edges of this rectangle
+    double left1 = this.originX;
+    double right1 = this.originX + this.width;
+    double bottom1 = this.originY;
+    double top1 = this.originY + this.height;
+
+    // Edges of the other rectangle
+    double left2 = r.originX;
+    double right2 = r.originX + r.width;
+    double bottom2 = r.originY;
+    double top2 = r.originY + r.height;
+
+    // If one rectangle is completely outside the other → no overlap
+    if (right1 <= left2 ||     // this is left of r
+        right2 <= left1 ||     // r is left of this
+        top1 <= bottom2 ||     // this is below r
+        top2 <= bottom1) {     // r is below this
+        return false;
+    }
+
+    return true;
 }
+public static boolean areOverlapping(Rectangle r1, Rectangle r2) {
+
+    return !(r1.originX + r1.width  <= r2.originX ||
+             r2.originX + r2.width  <= r1.originX ||
+             r1.originY + r1.height <= r2.originY ||
+             r2.originY + r2.height <= r1.originY);
+}
+
+public double calcRatio(Rectangle r1){
+    double ratio = width/height;
+    return ratio;
+}
+
+public boolean isSquare(Rectangle r1) {
+  if (width == height){
+    return true;
+  }
+  return false;
+  }
+}
+

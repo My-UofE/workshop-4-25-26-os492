@@ -14,10 +14,40 @@ public double getWidth(){
   return width;
 }
 
-
 public void setWidth(double width){
-  this.width = width;
+  if (width >=0){
+    this.width = width;
+  }
+
 }
+
+public double getHeight(){
+  return height;
+}
+
+public void setHeight(double height){
+    if (height >=0){
+    this.height = height;
+  }
+
+}
+
+public double getOriginX(){
+  return originX;
+}
+
+public void setOriginX(){
+  this.originX = originX;
+}
+
+public double getOriginY(){
+  return originY;
+}
+
+  public void setOriginY(){
+  this.originY = originY;
+}
+
 
   // 1 static attributes
   public static final int NUMBER_OF_SIDES = 4;
